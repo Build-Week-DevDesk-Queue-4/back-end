@@ -20,7 +20,6 @@ function filtering(login) {
     return db('users').where(login).first()
 }
 
-
 async function insert(user) {
     const [id] = await db('users').insert(user);
     return findById(id);
