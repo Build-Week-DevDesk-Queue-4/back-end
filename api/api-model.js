@@ -26,7 +26,7 @@ function filtering(login) {
 //   }
 
 function insert(user) {
-    return db("users").insert(user).returning(["id", "username", "type"]);
+    return db("users").insert(user).returning(["id", "username", "token", "type"]);
   }
 
 function removeUser(id){
