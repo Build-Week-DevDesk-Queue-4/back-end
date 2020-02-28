@@ -21,7 +21,7 @@ function filtering(login) {
 }
 
 async function insert(user) {
-    const [id] = await db('users').returning(user);
+    const [id] = await db('users').insert(user);
     return findById(id);
   }
 
