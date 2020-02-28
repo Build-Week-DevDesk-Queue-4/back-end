@@ -20,13 +20,8 @@ function filtering(login) {
     return db('users').where(login).first()
 }
 
-// async function insert(user) {
-//     const [id] = await db('users').insert(user);
-//     return findById(id);
-//   }
-
 function insert(user) {
-    return db("users").insert(user).returning(["id", "username", "token", "type"]);
+    return db("users").insert(user).returning(["id", "username", "type"]);
   }
 
 function removeUser(id){
