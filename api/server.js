@@ -17,8 +17,7 @@ server.use('/api/auth', authRouter);
 server.use('/api/tickets', authenticate, ticketsRouter);
 
 server.get('/', (req, res) => {
-    // res.status(200).json({ message: 'Welcome to...the back end!' });
-    res.sendFile(__dirname + "/index.html");
+    res.status(200).json({ message: 'Welcome to...the back end!' });
   });
 
 module.exports = server;

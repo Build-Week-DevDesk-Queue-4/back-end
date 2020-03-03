@@ -19,13 +19,13 @@ describe('GET /', () => {
     it('should be json', async () => {
       const res = await request(server)
       .get('/');
-      expect(res.type).toEqual('text/html');
+      expect(res.type).toEqual('application/json');
     });
   
     it('should return the right object', async () => {
       const res = await request(server)
       .get('/');
-      expect(res.body).toEqual({});
+      expect(res.body).toEqual({"message": "Welcome to...the back end!"});
     });
 });
   
