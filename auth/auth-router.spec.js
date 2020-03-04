@@ -29,3 +29,34 @@ describe('GET /', () => {
     });
 });
   
+describe('/api/auth/register', () => {
+  it('return status 500', async () => {
+      const res = await request(server)
+      .post('/api/auth/register')
+      .send({ username: "Super1", password: "User1" })
+      expect(res.status).toEqual(500);
+    });
+
+    it('return json', async () => {
+      const res = await request(server)
+      .post('/api/auth/register')
+      .send({ username: "Super1", password: "User1" })
+      expect(res.type).toEqual("application/json");
+    });
+});
+
+describe('/api/auth/login', () => {
+  it('return status 500', async () => {
+    const res = await request(server)
+    .post('/api/auth/login')
+    .send({ username: "Super1", password: "User1"})
+    expect(res.status).toEqual(500);
+    });
+
+    it('return json', async () => {
+      const res = await request(server)
+      .post('/api/auth/login')
+      .send({ username: "Super1", password: "User1" })
+      expect(res.type).toEqual("application/json");
+    });
+});
