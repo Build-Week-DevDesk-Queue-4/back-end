@@ -18,7 +18,7 @@ router.post('/', restricted, async (req, res) => {
     try {
         const ticket = req.body;
         const [ newTicket ] = await db.add(ticket);
-        res.status(201).json({ newTicket });
+        res.status(201).json({ newTicket, ticket });
     } catch (error) {
         res.status(500).json({ error });
     }
@@ -46,7 +46,7 @@ router.put('/:id', restricted, async (req, res) => {
         const id = req.params.id;
         const ticket = req.body;
         const updatedTicket = await db.update(ticket, id);
-        res.status(201).json({ updatedTicket });
+        res.status(201).json({ updatedTicket, ticket });
     } catch (error) {
         res.status(500).json({ error });
     }
